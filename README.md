@@ -1,7 +1,7 @@
 Sanguine Full Stack Developer Gauntlet 
 ======================================
 
-Fork this repo and create an application that will use the data from http://devtest.sanginebio.com/API 
+Fork this repo and create an application that will use the data from http://devtest.sanginebio.com/API/ 
 and create a single page application that will render the data in a way that is informative and visually
 appealing. Extra points for interactive data rendering (Filter, etc.). The API route is running on some 
 screwed up hardware that may go out peridiocially, so make sure you cache the data every now and again. 
