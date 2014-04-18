@@ -1,9 +1,28 @@
 <html>
-<body>
-test -- it worked.
+<body style="background-color:silver">
+  <div style="margin-top:20px;margin-left:50px;width:900px;">
+  <h3>Phlemologists:</h3>
+  <table style="background-color:white">
+    <style>
+      table,th,td
+      {
+        border:1px solid black;
+      }
+    </style>
+    <tr>
+      <td>Name</td> <td>Location</td> <td>Average Rating</td> <td>Picture</td>
+    </tr>
+    {% for user in data.users %}
+      <tr>
+        <td>{{user.profile.name}}</td> 
+        <td>{{user.marker}}</td>
+        <td>{{user.rating}}</td> 
+        <td><img src="{{user.profile.picUrl}}"></img></td>
+      </tr>
+    {% endfor %}
+  </table>
 
-{{data}}
-
-<img align="left" src="{{google_map}}"> </img>
+  <img align="left" src="{{google_map}}"> </img>
+  </div>
 </body>
 </html>

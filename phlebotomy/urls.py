@@ -1,3 +1,6 @@
+"""This file describes the url routes.
+"""
+
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
