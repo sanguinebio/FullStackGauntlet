@@ -1,15 +1,7 @@
-Sanguine Full Stack Developer Gauntlet 
-======================================
+I used django to build a small web app to pull data from the three apis and store it in a database.
+A table shows the list of phlemologists with their names, ratings, and pictures.  Their location is shown on google maps.
 
-Fork this repo and create an application that will use the data from http://devtest.sanguinebio.com/API/ 
-and create a single page application that will render the data in a way that is informative and visually
-appealing. Extra points for interactive data rendering (Filter, etc.). The API route is running on some 
-screwed up hardware that may go out peridiocially, so make sure you cache the data every now and again. 
-When you are finished, post the public url to your live app in the README file in the root directory 
-and send a pull request. 
-
-You can use any language you want, and you get extra points for the external API's that you use. Extra 
-points if it works for mobile also. Extra points for well documented code. Extra points for a 
-good git-workflow. 
-
-Good Luck!
+To run the server locally, and view the project, it is necessary to have python2.7 installed as well as pip, a program for install python libraries.  If this has been done, enter the following in the same directory as the file start_server.sh:
+./start_server.sh
+You may need to change the permissions of start_server.sh to be able to execute it (chmod 777 start_server.sh).
+This should install django.  After this has completed, the dev server should start up, and you can ctrl click on the url to load it in your browser. Email me at chetweger@gmail.com if there are any issues running the server.
