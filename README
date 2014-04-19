@@ -5,3 +5,6 @@ To run the server locally, and view the project, it is necessary to have python2
 ./start_server.sh
 You may need to change the permissions of start_server.sh to be able to execute it (chmod 777 start_server.sh).
 This should install django.  After this has completed, the dev server should start up, and you can ctrl click on the url to load it in your browser. Email me at chetweger@gmail.com if there are any issues running the server.
+
+This project is hosted at:
+http://thawing-brushlands-7131.herokuapp.com/
