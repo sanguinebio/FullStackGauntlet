@@ -3,6 +3,7 @@ This is the view file: index is called whenever the url is hit.
 '''
 
 from django.shortcuts import render
+from django.http import HttpResponse
 import datetime
 
 from models import JsonDump
@@ -10,10 +11,21 @@ from urllib import urlopen
 import json
 TRIES = 20
 
+def json_endpoint(request):
+  data = get_api()
+  list_list_cells = map( lambda x:
+                         [x['marker'],
+                          x['profile'].get('name', ""),
+                          x['rating'], '<img height=100 src="' + x['profile'].get('picUrl', "") + '"></img>'],
+                         data['users']
+                       )
+
+  return HttpResponse(json.dumps(list_list_cells), mimetype='application/javascript')
+
 def index(request):
   data = get_api()
   google_map = get_gmap_url(data['locations'])
-  return render(request, 'phlebotomy.html', {'data': data, 'google_map': google_map})
+  return render(request, 'phlebotomy.html',{'data': data,'google_map': google_map, })
 
 def get_api():
   '''Gets the necessary data from the api and stores it in the JsonDump database table.
@@ -63,7 +75,7 @@ def get_gmap_url(locations):
   first_geo = locations[0]['userInfo']['location']['geo']
   lat_center = first_geo[0]
   lon_center = first_geo[1]
-  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + str(lat_center) + ',' + str(lon_center) + '&zoom=8&size=1200x600&maptype=roadmap' + markers + '&sensor=false'
+  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + str(lat_center) + ',' + str(lon_center) + '&zoom=8&size=450x500&maptype=roadmap' + markers + '&sensor=false'
   return url
 
 def get_unreliable_url(url, tries=TRIES):

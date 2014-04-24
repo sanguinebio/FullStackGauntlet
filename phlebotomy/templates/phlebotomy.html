@@ -1,28 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Searchable Slider</title>
+  <style type="text/css" title="currentStyle">
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="/js/jquery_002.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.get("/json", function (data){
+      data = JSON.parse(data);
+      $('#dynamic').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+      $('#example').dataTable( {
+        "aaData": data,
+        "aoColumns": [
+          { "sTitle": "Location" },
+          { "sTitle": "Name" },
+          { "sTitle": "Average Rating" },
+          { "sTitle": "Picture"}
+        ]
+      });
+    });  
+  </script>
+</head>
+
 <body style="background-color:silver">
   <div style="margin-top:20px;margin-left:50px;width:900px;">
-  <h3>Phlemologists:</h3>
-  <table style="background-color:white">
-    <style>
-      table,th,td
-      {
-        border:1px solid black;
-      }
-    </style>
-    <tr>
-      <td>Name</td> <td>Location</td> <td>Average Rating</td> <td>Picture</td>
-    </tr>
-    {% for user in data.users %}
-      <tr>
-        <td>{{user.profile.name}}</td> 
-        <td>{{user.marker}}</td>
-        <td>{{user.rating}}</td> 
-        <td><img src="{{user.profile.picUrl}}"></img></td>
-      </tr>
-    {% endfor %}
-  </table>
+    <h3>Phlemologists:</h3>
+    <table style="background-color:white">
+      <style>
+        table,th,td
+        {
+          border:1px solid black;
+          width:450px
+        }
+      </style>
+    </table>
 
-  <img align="left" src="{{google_map}}"> </img>
+    <div id="dynamic"><div id="example_wrapper" class="dataTables_wrapper" role="grid"><div class="dataTables_length" id="example_length"><label>Show <select aria-controls="example" size="1" name="example_length"><option selected="selected" value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="example_filter"
+          class="dataTables_filter"><label>Search: <input aria-controls="example" type="text"></label></div><table aria-describedby="example_info" class="display dataTable" id="example" border="0" cellpadding="0" cellspacing="0"><thead></tbody></table><div id="example_info" class="dataTables_info"></div></div></div>
+
+    <img align="left" src="{{google_map}}"> </img>
   </div>
 </body>
 </html>
+

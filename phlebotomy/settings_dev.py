@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'phlebotomy.urls'
+ROOT_URLCONF = 'phlebotomy.urls_dev'
 
 WSGI_APPLICATION = 'phlebotomy.wsgi.application'
 
@@ -82,6 +82,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = CURRENT_PATH + '/phlebotomy/js'
 
 TEMPLATE_DIRS = (
   CURRENT_PATH + '/phlebotomy/templates/'
